@@ -48,7 +48,7 @@ angular.module('ngTinyScrollbar', [])
             restrict: 'A',
             transclude: true,
             template: '<div class="scroll-bar"><div class="scroll-thumb"></div></div><div class="scroll-viewport"><div class="scroll-overview" ng-transclude></div></div>',
-            controller: function($scope, $element, $attrs) {
+            controller: function($scope, $element, $attrs, $timeout) {
 
                 var options = $attrs.scrollbar;
                 if (options) {
@@ -94,6 +94,11 @@ angular.module('ngTinyScrollbar', [])
                     }
                     self.update();
                     setEvents();
+
+                    $timeout(function() {
+                        self.update();
+                    },100);
+
                     return self;
                 };
 
