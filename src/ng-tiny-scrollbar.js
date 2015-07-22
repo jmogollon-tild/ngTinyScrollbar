@@ -97,7 +97,7 @@ angular.module('ngTinyScrollbar', [])
 
                     $timeout(function() {
                         self.update();
-                    },100);
+                    },250);
 
                     return self;
                 };
